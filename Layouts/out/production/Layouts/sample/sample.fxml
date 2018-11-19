@@ -1,0 +1,259 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.StackPane?>
+
+<!--StackPane - stacks all its children on top of each other. In this case, the second label is on top of the button,
+which is also on top of the first label.-->
+
+<StackPane fx:controller="sample.Controller"
+xmlns:fx="http://javafx.com/fxml">
+    <Label text="The Label Text" style="-fx-background-color : red"/>
+    <Button text="Button One" style="-fx-background-color : green"/>
+    <Label text="The Secind Label Text" style="-fx-background-color : blue"/>
+
+</StackPane>
+
+
+
+                        <!--ANOTHER EXAMPLE-->
+
+<!--&lt;!&ndash;The gap between each element in the row is 10 pixels- set by vgap. &ndash;&gt;-->
+<!--&lt;!&ndash;The gap between each element in the column  is 10 pixels - set by vgap.&ndash;&gt;-->
+<!--&lt;!&ndash;gridLinesVisible makes it possible to see the 10 pixel gap between buttons - remember the width of each column is-->
+<!--determined by the width of the longest button. &ndash;&gt;-->
+<!--&lt;!&ndash;alignment="center" means that if you resize the UI, all the elements defined in this block will remain centered.&ndash;&gt;-->
+<!--&lt;!&ndash;alignment="top_center" moves the buttons to the top of the page and centralises the buttons.&ndash;&gt;-->
+
+<!--<GridPane fx:controller="sample.Controller"-->
+          <!--xmlns:fx="http://javafx.com/fxml" alignment="top_center" hgap="10" vgap="10" gridLinesVisible="true">-->
+
+    <!--&lt;!&ndash;Adds a 10px gap between the title bar and the first row.&ndash;&gt;-->
+    <!--<padding>-->
+        <!--<Insets top="10"/>-->
+    <!--</padding>-->
+
+    <!--&lt;!&ndash;When you first open the window, the longer button takes up more space initially. The code below will ensure that-->
+<!--the smaller button will get a first share of initial space - 50% of the width of the whole window. &ndash;&gt;-->
+
+    <!--&lt;!&ndash;We are using the ColumnConstaints class to set the width of each initial column. We can either use pixels-->
+        <!--or percentage. &ndash;&gt;-->
+    <!--&lt;!&ndash;<columnConstraints>&ndash;&gt;-->
+        <!--&lt;!&ndash;This column constraint will apply to the first column&ndash;&gt;-->
+        <!--&lt;!&ndash;<ColumnConstraints percentWidth="50.0"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;This column constraint will apply to the second column&ndash;&gt;-->
+        <!--&lt;!&ndash;<ColumnConstraints percentWidth="50.0"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</columnConstraints>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;Adding buttons to the screen. The default position of these buttons is (0, 0). &ndash;&gt;-->
+    <!--&lt;!&ndash;Buttons 1 and 2 are in the same row but different columns, so are buttons 3 and 4.&ndash;&gt;-->
+    <!--&lt;!&ndash;GridPane.halignment="RIGHT": Aligns the button to the right (as the default alignnment of the buttons is to the left).-->
+    <!--Conversely, valignment controls the vertical alignment. &ndash;&gt;-->
+    <!--<Button text = "Button One" GridPane.rowIndex="0" GridPane.columnIndex="0"-->
+    <!--GridPane.halignment="RIGHT"/>-->
+    <!--<Button text = "Button Two" GridPane.rowIndex="0" GridPane.columnIndex="1"/>-->
+    <!--<Button text = "Button Three" GridPane.rowIndex="1" GridPane.columnIndex="0"/>-->
+
+    <!--&lt;!&ndash;GridPane.columnSpan="2" - The button will take up the space of two columns. &ndash;&gt;-->
+    <!--<Button text = "Really Long Button Four" GridPane.rowIndex="3" GridPane.columnIndex="0"-->
+    <!--GridPane.columnSpan="2"/>-->
+    <!--<Button text = "Button Five" GridPane.rowIndex="2" GridPane.columnIndex="0"/>-->
+<!--</GridPane>-->
+
+
+
+
+                                <!--CHANGING GridPane LAYOUT TO HBox LAYOUT-->
+
+        <!--The 'style' attribute allows you to see that HBox occupies the entire width and height of the window.-->
+        <!--spacing = "10" - there will be 10px of space between each child in HBox.-->
+<!--<HBox fx:controller="sample.Controller"-->
+      <!--xmlns:fx="http://javafx.com/fxml" alignment="bottom_right"-->
+      <!--style ="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"-->
+      <!--spacing = "10">-->
+
+<!--<padding>-->
+    <!--&lt;!&ndash;Bottom and right padding of the buttons&ndash;&gt;-->
+    <!--<Insets bottom ="10" right="10"/>-->
+<!--</padding>-->
+
+<!--&lt;!&ndash;HBox by default enusures that all these buttons are vertically filled.&ndash;&gt;-->
+<!--&lt;!&ndash;prefWidth="90" - Setting the preferred width to 90px.&ndash;&gt;-->
+<!--<Button text="Okay" prefWidth="90"/>-->
+<!--<Button text="Cancel" prefWidth="90"/>-->
+<!--<Button text="Help" prefWidth="90"/>-->
+
+<!--</HBox>-->
+
+
+
+
+                                    <!--BorderPane-->
+
+        <!--<?import javafx.geometry.Insets?>-->
+        <!--<?import javafx.scene.layout.GridPane?>-->
+
+        <!--<?import javafx.scene.control.Button?>-->
+        <!--<?import javafx.scene.control.Label?>-->
+        <!--<?import javafx.scene.layout.HBox?>-->
+        <!--<?import javafx.scene.layout.BorderPane?>-->
+
+        <!--&lt;!&ndash;AnchorPane allows us to anchor children to its edges which can influence what happens when the page is resized.&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;We're nesting the HBox layout inside the BorderPane layout.&ndash;&gt;-->
+
+<!--<BorderPane fx:controller="sample.Controller"-->
+            <!--xmlns:fx="http://javafx.com/fxml">-->
+
+<!--<top>-->
+    <!--&lt;!&ndash;alignment="center - does not center the text. The text is only centered within the apportioned border of the text-->
+    <!--(as highlight using the style attribute). We cannot center the text within the label tag but we can center the-->
+    <!--Label child within the BorderPane using - BorderPane.alignment="center".&ndash;&gt;-->
+    <!--<Label text="This label is in the top position" alignment="center"-->
+           <!--BorderPane.alignment="center"-->
+           <!--style="-fx-border-color: blue; -fx-border-width: 3; -fx-border-style: dashed"/>-->
+<!--</top>-->
+
+<!--<left>-->
+    <!--<Label text="This label is in the left position." alignment="center"/>-->
+<!--</left>-->
+
+<!--&lt;!&ndash;Center position takes up the left over space after all the other spaces (top, bottom, right and left) have-->
+<!--been taken.&ndash;&gt;-->
+<!--<center>-->
+    <!--<Label text="This label is in the center position." alignment="center"/>-->
+<!--</center>-->
+
+<!--<right>-->
+    <!--<Label text="This label is in the right position." alignment="center"/>-->
+<!--</right>-->
+
+<!--&lt;!&ndash;Because BorderPane hasn't specified where HBox should be place, HBox is stuck on the top left hand corner by default.&ndash;&gt;-->
+<!--&lt;!&ndash;bottom tag tells BorderPane when we want to place HBox. &ndash;&gt;-->
+<!--<bottom>-->
+    <!--&lt;!&ndash;<HBox spacing = "10" alignment="top_right"> - will align the buttons to the top right of HBox (which is topmost-->
+    <!--part of the 'bottom' of BorderPane). Even if you change the alignment to center_right, the positions of the buttons-->
+     <!--will not change - as this is due to the above reason.&ndash;&gt;-->
+    <!--<HBox spacing = "10" alignment="top_right">-->
+        <!--<padding>-->
+            <!--<Insets bottom="10" right="10"/>-->
+        <!--</padding>-->
+
+        <!--&lt;!&ndash;HBox by default enusures that all these buttons are vertically filled.&ndash;&gt;-->
+        <!--&lt;!&ndash;prefWidth="90" - Setting the preferred width to 90px.&ndash;&gt;-->
+        <!--<Button text="Okay" prefWidth="90"/>-->
+        <!--<Button text="Cancel" prefWidth="90"/>-->
+        <!--<Button text="Help" prefWidth="90"/>-->
+
+    <!--</HBox>-->
+<!--</bottom>-->
+<!--</BorderPane>-->
+
+
+                         <!--FlowPane-->
+
+        <!--<?import javafx.geometry.Insets?>-->
+        <!--<?import javafx.scene.layout.GridPane?>-->
+
+        <!--<?import javafx.scene.control.Button?>-->
+        <!--<?import javafx.scene.control.Label?>-->
+        <!--<?import javafx.scene.layout.HBox?>-->
+        <!--<?import javafx.scene.layout.FlowPane?>-->
+        <!--<?import javafx.scene.layout.BorderPane?>-->
+
+        <!--&lt;!&ndash;FlowPane automatically adjusts the texts to take up vertical or horizontal spaces depending on your preference. &ndash;&gt;-->
+        <!--&lt;!&ndash;AnchorPane allows us to anchor children to its edges which can influence what happens when the page is resized.&ndash;&gt;-->
+        <!--&lt;!&ndash;orientation="HORIZONTAL" - sets the orientation of the flowpane to horizontal - i.e it automatically moves the buttons-->
+        <!--to a new row as you adjust the size of the window.&ndash;&gt;-->
+
+<!--<FlowPane fx:controller="sample.Controller"-->
+          <!--xmlns:fx="http://javafx.com/fxml" orientation="VERTICAL">-->
+<!--<Button text="Button One"/>-->
+<!--<Button text="Button Two"/>-->
+<!--<Button text="Button Three"/>-->
+<!--<Button text="Button Four"/>-->
+<!--<Button text="Button Five"/>-->
+<!--<Button text="Button Six"/>-->
+<!--<Button text="Button Seven"/>-->
+<!--<Button text="Button Eight"/>-->
+<!--<Button text="Button Nine"/>-->
+<!--<Button text="Button Ten"/>-->
+
+<!--</FlowPane>-->
+
+
+                             <!--VBox-->
+
+        <!--<?import javafx.geometry.Insets?>-->
+        <!--<?import javafx.scene.layout.GridPane?>-->
+
+        <!--<?import javafx.scene.control.Button?>-->
+        <!--<?import javafx.scene.control.Label?>-->
+        <!--<?import javafx.scene.layout.HBox?>-->
+        <!--<?import javafx.scene.layout.VBox?>-->
+        <!--<?import javafx.scene.layout.FlowPane?>-->
+        <!--<?import javafx.scene.layout.BorderPane?>-->
+
+        <!--&lt;!&ndash;VBox is happy make the buttons less visible as you adjust the window size - making VBox static compared to a more-->
+        <!--flexible FlowPane. It would make sense to use flow pane when you are adding button based on say data that you're getting from-->
+        <!--the data base were a great deal of flexibility is needed. HBox or VBox are used when you don't want buttons to wrap aka-->
+        <!--ok and cancel buttons. &ndash;&gt;-->
+
+        <!--&lt;!&ndash;FlowPane automatically adjusts the texts to take up vertical or horizontal spaces depending on your preference. &ndash;&gt;-->
+        <!--&lt;!&ndash;AnchorPane allows us to anchor children to its edges which can influence what happens when the page is resized.&ndash;&gt;-->
+        <!--&lt;!&ndash;orientation="HORIZONTAL" - sets the orientation of the flowpane to horizontal - i.e it automatically moves the buttons-->
+        <!--to a new row as you adjust the size of the window.&ndash;&gt;-->
+
+<!--<VBox fx:controller="sample.Controller"-->
+      <!--xmlns:fx="http://javafx.com/fxml">-->
+<!--<Button text="Button One"/>-->
+<!--<Button text="Button Two"/>-->
+<!--<Button text="Button Three"/>-->
+<!--<Button text="Button Four"/>-->
+<!--<Button text="Button Five"/>-->
+<!--<Button text="Button Six"/>-->
+<!--<Button text="Button Seven"/>-->
+<!--<Button text="Button Eight"/>-->
+<!--<Button text="Button Nine"/>-->
+<!--<Button text="Button Ten"/>-->
+
+<!--</VBox>-->
+
+
+
+                    <!--TilePane-->
+
+        <!--<?import javafx.geometry.Insets?>-->
+        <!--<?import javafx.scene.layout.GridPane?>-->
+
+        <!--<?import javafx.scene.control.Button?>-->
+        <!--<?import javafx.scene.control.Label?>-->
+        <!--<?import javafx.scene.layout.HBox?>-->
+        <!--<?import javafx.scene.layout.FlowPane?>-->
+        <!--<?import javafx.scene.layout.BorderPane?>-->
+        <!--<?import javafx.scene.layout.TilePane?>-->
+
+        <!--&lt;!&ndash;TilePane - This is like flowpane but with space in between buttons.&ndash;&gt;-->
+
+<!--<TilePane fx:controller="sample.Controller"-->
+          <!--xmlns:fx="http://javafx.com/fxml" orientation="HORIZONTAL">-->
+<!--<Button text="Button One"/>-->
+<!--<Button text="Button Two"/>-->
+<!--<Button text="Button Three"/>-->
+<!--<Button text="Button Four"/>-->
+<!--<Button text="Button Five"/>-->
+<!--<Button text="Button Six"/>-->
+<!--<Button text="Button Seven"/>-->
+<!--<Button text="Button Eight"/>-->
+<!--<Button text="Button Nine"/>-->
+<!--<Button text="Button Ten"/>-->
+
+<!--</TilePane>-->
