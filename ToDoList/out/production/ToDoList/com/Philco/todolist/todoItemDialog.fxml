@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--Each FXML file can only have one root node - aka one scene graph. So we would have to create a new FXML file for
+our dialog box and an associated separate controller as well.-->
+<!--Every instance of a dialog wraps a DialogPane instance - meaning the a DialogPane is always the top level layout of the
+dialog box. -->
+
+<!--There is a layout manager that is used for dialog box which allows us to set four properties - header, graphic, content and
+buttons. Each property expects a control. Because we often want to display texts for the header and the content, the DialogPane has
+2 convenient properties - headertext and contenttext. This is useful when we want the header and the content to display a string - as
+ this saves use from having to use the label properties for the texts. -->
+
+<DialogPane fx:controller="com.Philco.todolist.DialogController"
+            xmlns:fx="http://javafx.com/fxml">
+    <!--headerText is also a text property-->
+    <headerText>
+        We could put instructions here
+    </headerText>
+
+    <content>
+        <GridPane vgap="10" hgap="10">
+            <Label text="Short Description" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <TextField fx:id="shortDescriptionField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <Label text="Details:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <!--WrapText makes long sentences scrollable - as opposed to having the sentence in a long line.-->
+            <TextArea fx:id="detailsArea" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                        WrapText="true"/>
+            <Label text="Deadline:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+            <DatePicker fx:id="deadlinePicker" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+        </GridPane>
+    </content>
+</DialogPane>

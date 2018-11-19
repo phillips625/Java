@@ -1,0 +1,121 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
+
+                    <!-- THIS IS THE 'V' PART OF THE MVC MODEL-->
+
+<!--Changing from GridPane to BorderPane. hgap and vgap no longer apply to BorderPane.-->
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+
+<!--fx:controller points this view to the 'Controller' class.-->
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<!--When defining a class, we use capital letter. When referring to a property within the class, we start with a small letter.-->
+
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.ToggleButton?>
+<BorderPane fx:id="mainBorderPane" fx:controller="com.Philco.todolist.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+    <top>
+
+        <VBox>
+            <!--Adding a menu bar to the top.-->
+            <MenuBar>
+                <Menu text="File">
+                    <!--Sub menus-->
+                    <items>
+                        <MenuItem text="New..." onAction="#showNewItemDialog"/>
+                        <!--Adds a separator line.-->
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Exit" onAction="#handleExit"/>
+                    </items>
+                </Menu>
+            </MenuBar>
+
+            <ToolBar>
+                <HBox>
+                    <!--<Button text="New..." onAction="#showNewItemDialog">-->
+                    <!--Some of Button's properties are onAction, tooltip, graphic. graphic property expects a Node instance (in this
+                    case, we giving it an ImageView instance). The ImageView's Image property expects an instance of the Image class
+                    and fxml allows us to define it without using image tags. -->
+
+                    <!--<Button onAction="#showNewItemDialog" tooltip="Add a new to do item.">-->
+
+                    <!--The above code did not work because the tooltip (property of Button) expects an instance of the Tooltip class
+                    as opposed to a String. -->
+                    <Button onAction="#showNewItemDialog">
+                        <tooltip>
+                            <Tooltip text="Add a new to do item."/>
+                        </tooltip>
+                        <!--Adding image from the jlfgr-1...jar file-->
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/toolbarButtonGraphics/general/New24.gif"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+
+                    <!--When this button is selected, we'll show only items that are due today. Otherwise, show all items.-->
+                    <ToggleButton fx:id="filterToggleButton" text="Today's Items" onAction="#handleFilterButton">
+                        <!--Adding a tip for the toggle button.-->
+                        <tooltip>
+                            <Tooltip text="Button Down: Show Today's items only. Button up: Show all items"/>
+                        </tooltip>
+                    </ToggleButton>
+                </HBox>
+            </ToolBar>
+        </VBox>
+
+    </top>
+
+    <left>
+
+        <!--onMouseClicked="#handleClickListView" CAN NOW BE REMOVED FROM THE FXML FILE BECAUSE WE HAVE CREATED A
+        GENERIC EVENT LISTENER (THAT LISTENS TO WHEN AN ITEM IS SELECTED) IN THE 'initialize' function in the Controller.-->
+        <!--<ListView fx:id="todoListView" onMouseClicked="#handleClickListView">-->
+
+        <ListView fx:id="todoListView" onMouseClicked="#handleClickListView" onKeyPressed="#handleKeyPressed">
+            <!--We created a new package (datamodel) and created a new class (TodoItem) within it. This is used to store
+            all the data from the ListView. -->
+
+        </ListView>
+    </left>
+
+    <center>
+        <VBox style="-fx-background-color: white">
+            <!--Placing the TextArea on top of the HBox-->
+            <!--VBox.vgrow="ALWAYS" tells the VBox to give as much room to the text area as much as possible.-->
+            <TextArea fx:id="itemDetailsTextArea" VBox.vgrow="ALWAYS" wrapText="true"/>
+
+            <!--Every item in the HBox will be layed out vertically.-->
+            <HBox>
+                <Label text="Due: " style="-fx-background-color: white">
+                    <font>
+                        <Font name="Times New Roman bold" size="20"/>
+                    </font>
+                </Label>
+
+                <!--This is for the deadline we get from the TodoItem.-->
+                <Label fx:id="deadlineLabel" style="-fx-background-color: white">
+                    <font>
+                        <Font name="Times New Roman bold" size="20"/>
+                    </font>
+                </Label>
+
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
