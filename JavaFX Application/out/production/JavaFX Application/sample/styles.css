@@ -1,0 +1,14 @@
+
+/*JavaFx actually runs css in the background - its default theme is the Medina theme. We can change this default theme to
+what we want (e.g to the Kaspian theme). */
+
+/*This will style all the buttons.*/
+.button{
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+
+#button_three{
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+}
